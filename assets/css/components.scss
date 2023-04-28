@@ -1,0 +1,51 @@
+nav.navbar {
+    transition: all 1s;
+    z-index: 10;
+
+    &.top {
+        height: 200px;
+        background-color: transparent;
+        box-shadow: none;
+
+        a {
+            color: #fff;
+        }
+
+    }
+
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
+    background-color: #fff;
+    height: 100px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    width: 100%;
+    align-items: center;
+
+    img {
+        aspect-ratio: 1;
+        height: 100%;
+    }
+
+    a {
+        color: $dark-text;
+        transition: all .3s;
+
+        font: {
+            size: 1.25rem;
+            weight: 500;
+        }
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 15px;
+
+    }
+
+}
