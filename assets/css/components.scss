@@ -1,3 +1,74 @@
+/* Style the navigation menu */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    transition: all 1s;
+    display: none;
+
+    /* Hide the links inside the navigation menu (except for logo/home) */
+    #myLinks {
+        display: none;
+    }
+
+    /* Style navigation menu links */
+    a {
+        color: white;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        display: block;
+    }
+
+    /* Style the hamburger menu */
+    a.icon {
+        background: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    /* Add a grey background color on mouse-over */
+    a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Style the active link (or home/logo) */
+    .active {
+        background-color: #04AA6D;
+        color: white;
+    }
+
+}
+
+
+
+
+
+@media screen and (max-width: 992px) {
+    nav.navbar {
+        display: none;
+    }
+
+    nav.navbar {
+        &.top {
+            display: none;
+        }
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .topnav {
+        display: block;
+    }
+}
+
 nav.navbar {
     transition: all 1s;
     z-index: 10;
@@ -45,6 +116,47 @@ nav.navbar {
     .nav-menu {
         display: flex;
         gap: 15px;
+
+    }
+
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+
+    a {
+        display: inline-block;
+        position: relative;
+        color: white;
+        padding-bottom: 10px;
+        border-bottom: 2px transparent solid;
+        transition: all 2s;
+
+        font: {
+            size: 1.5rem;
+            weight: 500;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 4px;
+            bottom: 0;
+            left: 0;
+            background-color: $primary;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
 
     }
 

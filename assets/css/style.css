@@ -83,6 +83,61 @@ body {
     grid-column: span 2/auto;
   }
 }
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  transition: all 1s;
+  display: none;
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  /* Style navigation menu links */
+  /* Style the hamburger menu */
+  /* Add a grey background color on mouse-over */
+  /* Style the active link (or home/logo) */
+}
+.topnav #myLinks {
+  display: none;
+}
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.topnav .active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+@media screen and (max-width: 992px) {
+  nav.navbar {
+    display: none;
+  }
+  nav.navbar.top {
+    display: none;
+  }
+  .menu {
+    display: none;
+  }
+  .topnav {
+    display: block;
+  }
+}
 nav.navbar {
   transition: all 1s;
   z-index: 10;
@@ -120,6 +175,38 @@ nav.navbar a:hover {
 nav.navbar .nav-menu {
   display: flex;
   gap: 15px;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+}
+.menu a {
+  display: inline-block;
+  position: relative;
+  color: white;
+  padding-bottom: 10px;
+  border-bottom: 2px transparent solid;
+  transition: all 2s;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.menu a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(169, 203, 255);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.menu a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 body,
@@ -176,7 +263,7 @@ section .title {
 }
 
 .yellow {
-  background-color: rgb(245, 230, 179);
+  background-color: #f5e6b3;
 }
 
 .blue {
@@ -202,10 +289,13 @@ section .title {
 #whyUs .cards .whyUsCards {
   width: fit-content;
   border-radius: 15px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 }
 #whyUs .cards img {
   aspect-ratio: 1;
   width: 350px;
+  filter: blur(2px);
+  filter: opacity(0.3);
   object-fit: cover;
   margin: 0;
   display: block;

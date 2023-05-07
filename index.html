@@ -39,14 +39,28 @@
 </head>
 
 <body class="body">
+    <div class="topnav">
+        <a href="#home" class="active">Logo</a>
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
     <nav class="navbar top">
         <img src="./assets/img/logo.png" alt="" class="nav-logo">
-        <div class="nav-menu">
-            <a href="#" class="menu-items selected">Home</a>
-            <a href="./about.html" class="menu-items">About</a>
-            <a href="./gallery.html" class="menu-items">Projects</a>
-            <a href="./contact.html" class="menu-items">Contact</a>
-        </div>
+        <ul class="menu">
+            <li><a href="index.html" class="selected">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="gallery.html">PROJECTS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
     </nav>
     <section class="poster">
         <h1>
@@ -61,23 +75,23 @@
 
         <div class="cards">
             <div class="whyUsCards blue">
-                <img src="./assets/img/WhatsApp Image 2023-02-24 at 10.27.30 AM.jpeg" alt="">
+                <img src="./assets/img/why-us-1.png" alt="">
                 <div class="desc">Quality workmenship</div>
             </div>
             <div class="whyUsCards yellow">
-                <img src="./assets/img/WhatsApp Image 2023-02-24 at 10.27.30 AM.jpeg" alt="">
+                <img src="./assets/img/why-us-2.png" alt="">
                 <div class="desc">Expertise and Experience in the field</div>
             </div>
             <div class="whyUsCards blue">
-                <img src="./assets/img/WhatsApp Image 2023-02-24 at 10.27.30 AM.jpeg" alt="">
+                <img src="./assets/img/why-us-3.png" alt="">
                 <div class="desc">Attention to detail</div>
             </div>
             <div class="whyUsCards yellow">
-                <img src="./assets/img/WhatsApp Image 2023-02-24 at 10.27.30 AM.jpeg" alt="">
+                <img src="./assets/img/why-us-4.png" alt="">
                 <div class="desc">Affordable pricing</div>
             </div>
             <div class="whyUsCards blue">
-                <img src="./assets/img/WhatsApp Image 2023-02-24 at 10.27.30 AM.jpeg" alt="">
+                <img src="./assets/img/why-us-5.png" alt="">
                 <div class="desc">Communication and Customer Service</div>
             </div>
         </div>
