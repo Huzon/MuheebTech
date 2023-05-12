@@ -83,61 +83,10 @@ body {
     grid-column: span 2/auto;
   }
 }
-/* Style the navigation menu */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-  transition: all 1s;
+nav.navbar {
   display: none;
-  /* Hide the links inside the navigation menu (except for logo/home) */
-  /* Style navigation menu links */
-  /* Style the hamburger menu */
-  /* Add a grey background color on mouse-over */
-  /* Style the active link (or home/logo) */
-}
-.topnav #myLinks {
-  display: none;
-}
-.topnav a {
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
-}
-.topnav a.icon {
-  background: black;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-.topnav .active {
-  background-color: #04AA6D;
-  color: white;
 }
 
-@media screen and (max-width: 992px) {
-  nav.navbar {
-    display: none;
-  }
-  nav.navbar.top {
-    display: none;
-  }
-  .menu {
-    display: none;
-  }
-  .topnav {
-    display: block;
-  }
-}
 nav.navbar {
   transition: all 1s;
   z-index: 10;
@@ -151,17 +100,26 @@ nav.navbar {
   width: 100%;
   align-items: center;
 }
+nav.navbar .nav-logo {
+  background-image: url("../img/logo-m.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 300px;
+}
 nav.navbar.top {
-  height: 200px;
+  height: 150px;
   background-color: transparent;
   box-shadow: none;
 }
+nav.navbar.top .nav-logo {
+  background-image: url("../img/logo-only-m.png");
+  width: auto;
+  aspect-ratio: 1;
+}
 nav.navbar.top a {
   color: #fff;
-}
-nav.navbar img {
-  aspect-ratio: 1;
-  height: 100%;
 }
 nav.navbar a {
   color: #000;
@@ -172,9 +130,13 @@ nav.navbar a {
 nav.navbar a:hover {
   color: rgb(169, 203, 255);
 }
-nav.navbar .nav-menu {
-  display: flex;
-  gap: 15px;
+nav.navbar .menu-icon {
+  display: none;
+}
+@media screen and (max-width: 1000px) {
+  nav.navbar .menu-icon {
+    display: block;
+  }
 }
 
 .menu {
@@ -207,6 +169,64 @@ nav.navbar .nav-menu {
 .menu a:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+.menu.show {
+  display: block;
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  background-color: rgb(169, 203, 255);
+  z-index: 10;
+  border-radius: 10px;
+  margin: 0;
+  padding: 10px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+}
+@media screen and (max-width: 1000px) {
+  .menu {
+    display: none;
+  }
+}
+
+.service-card {
+  width: 100%;
+  position: relative;
+}
+.service-card img {
+  width: 100%;
+}
+.service-card .info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.service-card .info .text {
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+}
+.service-card .info button {
+  width: 200px;
+  height: 50px;
+  background-color: rgb(17, 46, 89);
+  color: #fff;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  transition: 0.5s;
+}
+.service-card .info button font {
+  size: 18px;
+}
+.service-card .info button:hover {
+  background-color: rgb(169, 203, 255);
 }
 
 body,
@@ -254,14 +274,33 @@ a {
   font-size: 1.2rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .poster {
+    padding: 10px;
+  }
+  .poster h1 {
+    font-size: 2rem;
+  }
+  .poster p {
+    font-size: 1rem;
+  }
+  .poster a {
+    font-size: 1rem;
+  }
+}
 section {
   margin-bottom: 50px;
 }
 section .title {
   text-align: center;
-  font-size: 40px;
+  font-size: 1.5rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .title {
+    font-size: 1.2rem;
+  }
+}
 .yellow {
   background-color: #f5e6b3;
 }
@@ -284,19 +323,25 @@ section .title {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
-  width: 1200px;
+  max-width: 1200px;
+  width: 90%;
 }
 #whyUs .cards .whyUsCards {
   width: fit-content;
   border-radius: 15px;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 }
+@media screen and (max-width: 1000px) {
+  #whyUs .cards .whyUsCards {
+    width: 100%;
+  }
+}
 #whyUs .cards img {
   aspect-ratio: 1;
-  width: 350px;
+  max-width: 350px;
   filter: blur(2px);
   filter: opacity(0.3);
-  object-fit: cover;
+  object-fit: contain;
   margin: 0;
   display: block;
   padding: 0;
@@ -304,13 +349,25 @@ section .title {
 }
 #whyUs .cards .desc {
   text-align: center;
-  width: 350px;
+  max-width: 350px;
+  width: 100%;
   padding: 20px 10px;
   box-sizing: border-box;
   font-size: 1rem;
-  font-font-weight: 500;
+  font-weight: 500;
+}
+@media screen and (max-width: 1000px) {
+  #whyUs .cards .desc {
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
 }
 
+@media screen and (max-width: 1000px) {
+  #whyUs .cards {
+    display: block;
+  }
+}
 #projects {
   background-color: rgb(17, 46, 89);
   padding: 30px 0;
@@ -320,11 +377,12 @@ section .title {
 }
 #projects .projectImg {
   padding: 15px 40px;
-  width: 100%;
+  width: fit-content;
+  align-items: center;
   display: flex;
-  row-gap: 20px;
+  gap: 20px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 #projects .projectImg img {
   aspect-ratio: 1;
@@ -340,10 +398,16 @@ section .title {
   justify-content: center;
   gap: 50px;
 }
+@media screen and (max-width: 1000px) {
+  #testimonials .testimonials {
+    flex-wrap: wrap;
+  }
+}
 #testimonials .card {
   border: 10px rgb(169, 203, 255) solid;
   box-sizing: border-box;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   aspect-ratio: 16/9;
   padding: 50px;
   display: flex;
@@ -362,22 +426,29 @@ section .title {
   font-size: 1.25rem;
   font-weight: 500;
 }
-
 #milestones .milestones {
   display: flex;
   justify-content: space-evenly;
   padding: 30px;
   background-image: url("../img/milestone.png");
 }
+@media screen and (max-width: 1000px) {
+  #milestones .milestones {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
 #milestones .milestones .card {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   aspect-ratio: 2/1;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  color: #000;
 }
 #milestones .milestones .card h6 {
   font-size: 1.25rem;
@@ -387,10 +458,13 @@ section .title {
 }
 
 #footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
   margin-bottom: 0;
   background-color: rgb(169, 203, 255);
-  padding: 30px;
-  text-align: center;
+  width: 100%;
   font-size: 0.5rem;
 }
 
@@ -551,6 +625,24 @@ section .title {
   aspect-ratio: 1;
   border-radius: 200px;
   border: 2px solid rgb(17, 46, 89);
+}
+
+#services {
+  padding: 20px;
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+  grid-template-columns: repeat(2, 500px);
+}
+@media screen and (max-width: 1000px) {
+  #services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 500px) {
+  #services {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

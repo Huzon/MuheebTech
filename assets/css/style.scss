@@ -62,6 +62,32 @@ a {
 
 }
 
+@media screen and (max-width: $tablet) {
+    .poster {
+        padding: 10px;
+
+        h1 {
+            font: {
+                size: 2rem;
+
+            }
+        }
+
+        p {
+            font: {
+                size: 1rem;
+            }
+        }
+
+        a {
+            font: {
+                size: 1rem;
+            }
+        }
+
+    }
+}
+
 section {
     margin-bottom: 50px;
 
@@ -69,10 +95,18 @@ section {
         text-align: center;
 
         font: {
-            size: 40px;
+            size: 1.5rem;
         }
 
 
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .title {
+        font: {
+            size: 1.2rem;
+        }
     }
 }
 
@@ -100,41 +134,76 @@ section {
         flex-wrap: wrap;
         gap: 30px;
         justify-content: center;
-        width: 1200px;
+        max-width: 1200px;
+        width: 90%;
+
+
 
         .whyUsCards {
             width: fit-content;
+            // width: 100%;
             border-radius: 15px;
             box-shadow: 2px 2px 20px rgba(0, 0, 0, .3);
+
+            @media screen and (max-width: $tablet) {
+                width: 100%;
+            }
         }
 
         img {
             aspect-ratio: 1;
-            width: 350px;
+            max-width: 350px;
+
+            // width: 100%;
             filter: blur(2px);
             filter: opacity(.3);
-            object-fit: cover;
+            object-fit: contain;
             margin: 0;
             display: block;
             padding: 0;
             border-radius: 15px 15px 0 0;
+
+
 
         }
 
         .desc {
             // background-color: $primary;
             text-align: center;
-            width: 350px;
+            max-width: 350px;
+            width: 100%;
+            // width: 100%;
+
+            // text-overflow: clip;
             padding: 20px 10px;
             box-sizing: border-box;
 
             font: {
                 size: 1rem;
-                font-weight: 500;
+                weight: 500;
             }
+
+            @media screen and (max-width: $tablet) {
+
+
+                font: {
+                    size: .75rem;
+                    weight: 500;
+                }
+            }
+
+
         }
 
 
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    #whyUs {
+        .cards {
+            display: block;
+        }
     }
 }
 
@@ -148,11 +217,13 @@ section {
 
     .projectImg {
         padding: 15px 40px;
-        width: 100%;
+        width: fit-content;
+        align-items: center;
+
         display: flex;
-        row-gap: 20px;
+        gap: 20px;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
 
         img {
             aspect-ratio: 1;
@@ -173,13 +244,17 @@ section {
         justify-content: center;
         gap: 50px;
 
+        @media screen and (max-width: $tablet) {
+            flex-wrap: wrap;
+        }
 
     }
 
     .card {
         border: 10px $primary solid;
         box-sizing: border-box;
-        width: 500px;
+        max-width: 500px;
+        width: 100%;
         aspect-ratio: 16/9;
         padding: 50px;
         display: flex;
@@ -204,6 +279,8 @@ section {
                 weight: 500;
             }
         }
+
+        @media screen and (max-width: $tablet) {}
     }
 }
 
@@ -215,6 +292,11 @@ section {
         // gap: 50;
         background-image: url('../img/milestone.png');
 
+        @media screen and (max-width: $tablet) {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
         .card {
             display: flex;
             flex-direction: column;
@@ -222,11 +304,16 @@ section {
             aspect-ratio: 2/1;
             // opacity: .3;
             // padding: 150px;
-            width: 300px;
+            max-width: 300px;
+            width: 100%;
             border-radius: 20px;
             justify-content: center;
             align-items: center;
+            color: #000;
 
+            // @media screen and (max-width: $tablet) {
+            //     flex-wrap: wrap;
+            // }
             h6 {
                 font: {
                     size: 1.25rem;
@@ -243,10 +330,14 @@ section {
 }
 
 #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
     margin-bottom: 0;
     background-color: $primary;
-    padding: 30px;
-    text-align: center;
+
+    width: 100%;
 
     font: {
         size: .5rem;
@@ -455,4 +546,24 @@ section {
             }
         }
     }
+}
+
+// -----------------------------------------------
+#services {
+    padding: 20px;
+    display: grid;
+    justify-content: center;
+    gap: 20px;
+    grid-template-columns: repeat(2, 500px);
+
+    @media screen and (max-width: $tablet) {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    @media screen and (max-width: $mobile) {
+        grid-template-columns: repeat(1, 1fr);
+
+    }
+
 }
