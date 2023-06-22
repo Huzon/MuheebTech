@@ -552,20 +552,44 @@ section {
     }
 
     .card:hover {
+
         border: 5px solid $dark-bg;
+    }
+
+    @media screen and (max-width: $tablet) {
+
+        grid-template-columns: repeat(1, 1fr);
+
+        .card {
+            .info {
+                max-width: 100%;
+            }
+        }
     }
 }
 
 #aboutTeam {
+    // width: 100%;
+    padding: 10px;
+
     .teamCards {
-        display: flex;
-        justify-content: center;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        // justify-content: center;
         gap: 100px;
+        align-items: center;
+        justify-items: center;
 
         .teamCard {
+            border-radius: 15px;
+            align-items: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
+            padding: 10px;
+            max-width: 250px;
 
             img {
                 width: 200px;
@@ -573,6 +597,21 @@ section {
                 border-radius: 200px;
                 border: 2px solid $dark-bg;
             }
+        }
+    }
+
+    @media screen and (max-width: $mobile) {
+        .teamCards {
+            gap: 10px;
+
+            .teamCard {
+                font-size: 10px;
+
+                img {
+                    width: 100px;
+                }
+            }
+
         }
     }
 }

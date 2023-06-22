@@ -665,22 +665,52 @@ section .title {
 #aboutInfo .card:hover {
   border: 5px solid rgb(17, 46, 89);
 }
+@media screen and (max-width: 1000px) {
+  #aboutInfo {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #aboutInfo .card .info {
+    max-width: 100%;
+  }
+}
 
+#aboutTeam {
+  padding: 10px;
+}
 #aboutTeam .teamCards {
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 100px;
+  align-items: center;
+  justify-items: center;
 }
 #aboutTeam .teamCards .teamCard {
+  border-radius: 15px;
+  align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  max-width: 250px;
 }
 #aboutTeam .teamCards .teamCard img {
   width: 200px;
   aspect-ratio: 1;
   border-radius: 200px;
   border: 2px solid rgb(17, 46, 89);
+}
+@media screen and (max-width: 500px) {
+  #aboutTeam .teamCards {
+    gap: 10px;
+  }
+  #aboutTeam .teamCards .teamCard {
+    font-size: 10px;
+  }
+  #aboutTeam .teamCards .teamCard img {
+    width: 100px;
+  }
 }
 
 #services {
