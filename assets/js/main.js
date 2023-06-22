@@ -14,12 +14,23 @@ $(document).ready(function () {
 });
 
 /* Toggle between showing and hiding the navigation menu links when the user clicks on the hamburger menu / bar icon */
+// function myFunction() {
+//     var x = document.getElementById("myLinks");
+//     if (x.style.display === "block") {
+//         x.style.display = "none";
+//     } else {
+//         x.style.display = "block";
+//     }
+// }
+
+/* Toggle between adding and removing the "responsive" class to the navbar when the user clicks on the icon */
 function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-        x.style.display = "none";
+    var x = document.getElementById("myNavbar");
+    if (x.className === "navbar") {
+        x.className += " responsive";
+
     } else {
-        x.style.display = "block";
+        x.className = "navbar";
     }
 }
 
@@ -50,7 +61,7 @@ function getServiceCard(i) {
             title = 'Blinds and Curtains'
             break;
         case 2:
-            title = 'Wall paint, Spray paint, Putty paint'
+            title = 'Roller, Spray and Structured Paint'
             break;
         case 3:
             title = 'A/C Servicing'
@@ -62,7 +73,7 @@ function getServiceCard(i) {
             title = 'POP and False Ceiling'
             break;
         case 6:
-            title = 'Fit-out from Shell and core core to complete finalization'
+            title = 'Fit-out from Shell and core to complete finalization'
             break;
         case 7:
             title = 'Hardwood works'
@@ -88,8 +99,36 @@ function getServiceCard(i) {
     return `<div class="service-card">
     <div class="info">
         <div class="text">${title}</div>
-        <button>Book Now</button>
+        <button onclick="toContact()">Book Now</button>
     </div>
     <img src="assets/img/services/${i}.png" alt="">
 </div>`;
 }
+function toContact() {
+    window.location.href = "./contact.html";
+}
+window.onscroll = function () { scrollfunction(); }
+function scrollfunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById('nav').style.top = "0";
+
+    } else {
+        document.getElementById("nav").style.top = "-100px";
+    }
+}
+$(function () {
+    var mouseY = 0;
+    var navbarHeight = $("#nav").outerHeight();
+    document.addEventListener('mousemove', function (e) {
+        mouseY = e.clientY || e.pageY;
+        if (mouseY < navbarHeight) {
+            document.getElementById('nav').style.top = "0";
+        }
+    }, false);
+
+    $('#nav').mouseout(function () {
+        // if ($(window).scrollTop() > navbarHeight) {
+        document.getElementById("nav").style.top = "-100px";
+        // }
+    });
+})

@@ -6,10 +6,29 @@ $tablet: 1000px;
 // COLORS
 $primary : rgb(169, 203, 255);
 $secondary: #f5e6b3;
+$accent: #f5e6b3;
 $bg: rgb(255, 255, 255);
 $dark-bg: rgb(17, 46, 89);
 $dark-text :#000;
 $light-text: #fff;
+$BG: #fff;
+$greyBG: #e5e5e5;
+
+.yellow {
+    background-color: $secondary;
+}
+
+.blue {
+    background-color: $primary;
+}
+
+.yellow-3 {
+    background-color: rgba($secondary , .3);
+}
+
+.blue-3 {
+    background-color: rgba($primary, .3);
+}
 
 * {
     box-sizing: border-box;

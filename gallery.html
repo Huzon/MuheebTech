@@ -39,15 +39,38 @@
 </head>
 
 <body>
-    <nav class="navbar top">
-        <img src="./assets/img/logo.png" alt="" class="nav-logo">
-        <div class="nav-menu">
-            <a href="#" class="menu-items selected">Home</a>
-            <a href="./about.html" class="menu-items">About</a>
-            <a href="./gallery.html" class="menu-items">Projects</a>
-            <a href="./contact.html" class="menu-items">Contact</a>
+    <header id="nav">
+        <a href="./index.html" class="logo-link">
+            <div class="title">
+                <img src="./assets/img/logo.png" class="logo" alt="">
+                <h5>Muheeb Technical Services</h5>
+            </div>
+        </a>
+
+        <div class="navbar">
+
+            <div class="items">
+                <a href="./index.html">Home</a>
+                <a href="./about.html">About</a>
+                <a href="./services.html">Services</a>
+                <a href="./gallery.html">Gallery</a>
+                <a href="./contact.html">Contact</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
         </div>
-    </nav>
+    </header>
+    <!-- <nav class="navbar top">
+        <div class="nav-logo"></div>
+        <a href="#" class="menu-icon"><i class="fas fa-bars"></i></a>
+        <ul class="menu">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="gallery.html" class="selected">PROJECTS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+
+    </nav> -->
     <section id="gallery" style="background-image: url('./assets/img/gallery-bg.jpg');">
         <div class="filter">
             <h2 class="title">Project Gallery</h2>
@@ -82,7 +105,22 @@
                 </div> -->
             </div>
         </div>
+
     </section>
+    <section id="footer">
+        <p> COPYRIGHT © Muheeb Technical Services </p>
+    </section>
+    <footer class="navbar" id="myNavbar">
+
+        <div class="items">
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="./services.html">Services</a>
+            <a href="./gallery.html">Gallery</a>
+            <a href="./contact.html">Contact</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+    </footer>
 </body>
 
 </html>
