@@ -456,6 +456,11 @@ section {
 
         // 
     }
+
+    @media screen and (max-width: $tablet) {
+        flex-direction: column;
+        height: auto;
+    }
 }
 
 #contactBottom {
@@ -476,10 +481,17 @@ section {
     }
 
     .map {
-        width: 1000px;
+        max-width: 1000px;
         aspect-ratio: 1;
         border: red 10px solid;
         border-radius: 20px;
+    }
+
+    @media screen and (max-width: $tablet) {
+        flex-direction: column;
+        // justify-content: center;
+        align-items: center;
+
     }
 }
 
