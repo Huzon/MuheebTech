@@ -448,6 +448,7 @@ section .title {
   aspect-ratio: 16/9;
   padding: 50px;
   display: flex;
+  gap: 15px;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -459,10 +460,44 @@ section .title {
   top: 5px;
   left: 5px;
 }
+#testimonials .card p {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#testimonials .card p.comment {
+  text-align: justify;
+  color: #f4f4f4;
+}
+#testimonials .card p.author {
+  text-align: end;
+  color: rgb(169, 203, 255);
+  font-weight: 500;
+}
 #testimonials .card a {
   font-size: 1.25rem;
   font-weight: 500;
 }
+@media screen and (max-width: 1000px) {
+  #testimonials .card {
+    padding: 20px;
+    font-size: 14px;
+  }
+  #testimonials .card img {
+    object-fit: contain;
+    height: 50px;
+    width: 50px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #testimonials .card {
+    font-size: 12px;
+  }
+  #testimonials .card img {
+    display: none;
+  }
+}
+
 #milestones .milestones {
   display: flex;
   justify-content: space-evenly;

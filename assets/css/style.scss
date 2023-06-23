@@ -260,6 +260,7 @@ section {
         aspect-ratio: 16/9;
         padding: 50px;
         display: flex;
+        gap: 15px;
         justify-content: center;
         align-items: center;
         position: relative;
@@ -275,6 +276,27 @@ section {
             left: 5px;
         }
 
+        p {
+
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+            &.comment {
+                text-align: justify;
+                color: #f4f4f4;
+
+            }
+
+            &.author {
+                text-align: end;
+                color: $primary;
+                font-weight: 500;
+
+
+            }
+        }
+
         a {
             font: {
                 size: 1.25rem;
@@ -282,7 +304,29 @@ section {
             }
         }
 
-        @media screen and (max-width: $tablet) {}
+        @media screen and (max-width: $tablet) {
+            padding: 20px;
+
+            font: {
+                size: 14px;
+            }
+
+            img {
+
+                object-fit: contain;
+                height: 50px;
+                width: 50px;
+
+            }
+        }
+
+        @media screen and (max-width: $mobile) {
+            font-size: 12px;
+
+            img {
+                display: none;
+            }
+        }
     }
 }
 
