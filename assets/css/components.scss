@@ -1,3 +1,5 @@
+@use "themes";
+
 // nav.navbar {
 //     display: none;
 // }
@@ -225,7 +227,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: $BG;
+    background-color: themes.$BG;
     box-sizing: border-box;
     padding: 0 10px;
     display: none;
@@ -250,7 +252,7 @@ footer {
     input {
         padding: 10px;
         border-radius: 20px;
-        background-color: $greyBG;
+        background-color: themes.$greyBG;
         border: none;
         outline: none;
     }
@@ -262,7 +264,7 @@ footer {
     a {
         float: left;
         display: block;
-        color: $dark-primary-text;
+        color: themes.$dark-primary-text;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
@@ -359,7 +361,7 @@ footer {
             width: 200px;
             height: 50px;
             // color: transparent;
-            background-color: $dark-bg;
+            background-color: themes.$dark-bg;
             color: #fff;
             outline: none;
             border-radius: 10px;
@@ -374,7 +376,7 @@ footer {
             }
 
             &:hover {
-                background-color: $primary;
+                background-color: themes.$primary;
             }
         }
 
