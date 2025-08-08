@@ -7,10 +7,31 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Contact form submitted");
+
+    const form = e.currentTarget; // The form element that was submitted
+    const formData = new FormData(form);
+
+    // Convert FormData to URL-encoded string (Netlify expects this format)
+    const formBody = new URLSearchParams(formData as any).toString();
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formBody,
+    })
+      .then(() => {
+        console.log("Form successfully submitted to Netlify");
+        alert("Thank you! Your message has been sent.");
+        form.reset(); // optional: clear the form
+      })
+      .catch((error) => {
+        console.error("Form submission error:", error);
+        alert("Oops! Something went wrong. Please try again.");
+      });
   };
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -153,14 +174,14 @@ const Contact = () => {
                   <p className="text-gray-700 mb-6">
                     Get expert advice for your project with our professional consultation
                   </p>
-                 <a
-                  href="https://wa.me/971566036352?text=I%20would%20like%20a%20free%20counselling"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-md text-center"
-                >
-  Book Free Counselling
-</a>
+                  <a
+                    href="https://wa.me/971566036352?text=I%20would%20like%20a%20free%20counselling"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-md text-center"
+                  >
+                    Book Free Counselling
+                  </a>
                   <p className="text-xs text-gray-500 mt-3">
                     *Free counselling is applicable only if a service is purchased
                   </p>
