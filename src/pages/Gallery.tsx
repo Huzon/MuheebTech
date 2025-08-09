@@ -21,68 +21,68 @@ const Gallery = () => {
       id: 1,
       title: "Modern Kitchen Renovation",
       category: "home",
-      image: "/placeholder.svg",
+      image: "/projects/home/IMG_8559.jpg",
       description: "Complete kitchen makeover with modern appliances and elegant design"
     },
     {
       id: 2,
       title: "Corporate Office Design",
       category: "office",
-      image: "/placeholder.svg",
+      image: "/projects/office/IMG_0447.jpg",
       description: "Professional office space with modern furniture and lighting"
     },
     {
       id: 3,
       title: "Custom Wardrobes",
       category: "furniture",
-      image: "/placeholder.svg",
-      description: "Built-in wardrobes with sliding doors and LED lighting"
+      image: "/projects/furniture/IMG_8638.jpg",
+      description: "Sleek custom wardrobe with full-length mirrored panels framed in white and accented with gold trim"
     },
     {
       id: 4,
       title: "Living Room Makeover",
       category: "home",
-      image: "/placeholder.svg",
+      image: "/projects/home/IMG_9306.jpg",
       description: "Elegant living room with custom furniture and wall treatment"
     },
     {
       id: 5,
       title: "Office Reception Area",
       category: "office",
-      image: "/placeholder.svg",
+      image: "/projects/office/IMG_5742.jpg",
       description: "Welcoming reception area with modern design elements"
     },
     {
       id: 6,
       title: "Feature Wall Design",
       category: "paint",
-      image: "/placeholder.svg",
-      description: "Stunning feature wall with textured paint and lighting"
+      image: "/projects/wall/IMG_4777.jpg",
+      description: "Stunning feature wall with customized wall cladding and lighting"
     },
     {
       id: 7,
       title: "Master Bedroom Suite",
       category: "home",
-      image: "/placeholder.svg",
-      description: "Luxurious master bedroom with walk-in closet"
+      image: "/projects/home/IMG_9321.jpg",
+      description: "Luxurious master bedroom with matching rug and curtains"
     },
     {
       id: 8,
-      title: "Conference Room",
+      title: "Home Office",
       category: "office",
-      image: "/placeholder.svg",
-      description: "Modern conference room with AV integration"
+      image: "/projects/office/IMG_9329.jpg",
+      description: "Modern home office room with AV integration"
     }
   ];
 
-  const filteredProjects = selectedCategory === "all" 
-    ? projects 
+  const filteredProjects = selectedCategory === "all"
+    ? projects
     : projects.filter(project => project.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -101,11 +101,10 @@ const Gallery = () => {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                  selectedCategory === category.id
-                    ? "bg-yellow-500 text-black"
-                    : "bg-white text-gray-700 hover:bg-gray-100"
-                }`}
+                className={`px-6 py-2 rounded-full font-medium transition-colors ${selectedCategory === category.id
+                  ? "bg-yellow-500 text-black"
+                  : "bg-white text-gray-700 hover:bg-gray-100"
+                  }`}
               >
                 {category.name}
               </button>
@@ -137,7 +136,7 @@ const Gallery = () => {
         </div>
       </section>
 
-      <CTASection 
+      <CTASection
         title="Inspired by Our Work?"
         subtitle="Let us transform your space with our expert craftsmanship and attention to detail"
         primaryButton="Start Your Project"

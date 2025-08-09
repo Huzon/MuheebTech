@@ -50,11 +50,15 @@ export const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">+971 XX XXX XXXX</span>
+                <a href="tel:+971565475321" className="text-gray-300 text-sm">+971 56 547 5321</a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+                <a href="tel:+971566036352" className="text-gray-300 text-sm">+971 56 603 6352</a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">info@muheebtechnical.com</span>
+                <a href="mailto:info@muheebtechnicals.com" className="text-gray-300 text-sm">info@muheebtechnical.com</a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
@@ -62,7 +66,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Clock className="w-5 h-5 text-yellow-500 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">Sun-Thu: 8AM-6PM</span>
+                <span className="text-gray-300 text-sm">Mon-Sat: 8AM-8PM</span>
               </div>
             </div>
           </div>
@@ -72,16 +76,16 @@ export const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Muheeb Technical Services. All rights reserved.
+              © 2025 Muheeb Technical Services. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            {/* <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-yellow-500 text-sm transition-colors">
                 Privacy Policy
               </a>
               <a href="#" className="text-gray-400 hover:text-yellow-500 text-sm transition-colors">
                 Terms of Service
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
