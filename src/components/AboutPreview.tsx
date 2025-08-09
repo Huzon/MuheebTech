@@ -10,7 +10,7 @@ export const AboutPreview = () => {
           {/* Left Column - Image */}
           <div className="relative">
             <img
-              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+              src="/about.jpg"
               alt="Muheeb Technical Services Team"
               className="rounded-2xl shadow-2xl"
             />
