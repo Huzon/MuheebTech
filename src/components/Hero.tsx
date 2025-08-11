@@ -45,9 +45,8 @@ export const Hero = () => {
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
         >
           <img
             src={`https://images.unsplash.com/${slide.image}`}
@@ -71,16 +70,30 @@ export const Hero = () => {
             Trusted by homes, chosen by businesses
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-500">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold text-lg px-8 py-3"
+              onClick={() => {
+                window.open(
+                  "https://wa.me/971565475321?text=" +
+                  encodeURIComponent("Hello, I would like a free quote."),
+                  "_blank"
+                );
+              }}
             >
               Get Free Quote Now
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
+            <Button
+              size="lg"
+              variant="outline"
               className="border-white text-black hover:bg-white hover:text-yellow-500 hover:border-yellow-500 text-lg px-8 py-3"
+              onClick={() => {
+                window.open(
+                  "https://wa.me/971565475321?text=" +
+                  encodeURIComponent("Hello, I would like to book a consultation."),
+                  "_blank"
+                );
+              }}
             >
               Book Consultation
             </Button>
@@ -108,9 +121,8 @@ export const Hero = () => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-200 ${
-              index === currentSlide ? 'bg-yellow-500' : 'bg-white/50'
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentSlide ? 'bg-yellow-500' : 'bg-white/50'
+              }`}
           />
         ))}
       </div>
