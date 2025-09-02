@@ -10,28 +10,32 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const form = e.currentTarget; // The form element that was submitted
+    const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Convert FormData to URL-encoded string (Netlify expects this format)
-    const formBody = new URLSearchParams(formData as any).toString();
+    const name = formData.get("name") as string;
+    const phone = formData.get("phone") as string;
+    const email = formData.get("email") as string;
+    const service = formData.get("service") as string;
+    const message = formData.get("message") as string;
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: formBody,
-    })
-      .then(() => {
-        console.log("Form successfully submitted to Netlify");
-        alert("Thank you! Your message has been sent.");
-        form.reset(); // optional: clear the form
-      })
-      .catch((error) => {
-        console.error("Form submission error:", error);
-        alert("Oops! Something went wrong. Please try again.");
-      });
+    const whatsappMessage = `
+Hello, I would like to inquire about your services:
+
+🧑 Name: ${name}
+📞 Phone: ${phone}
+📧 Email: ${email}
+🛠 Service Interested In: ${service || "Not specified"}
+📝 Message: ${message}
+    `;
+
+    const whatsappUrl = `https://wa.me/971566036352?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(whatsappUrl, "_blank");
+    form.reset(); // optional: clear form after redirect
   };
-
 
   return (
     <div className="min-h-screen bg-white">
@@ -57,18 +61,7 @@ const Contact = () => {
                 <CardTitle className="text-2xl">Send us a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form
-                  name="contact"
-                  method="POST"
-                  data-netlify="true"
-                  netlify-honeypot="bot-field"
-                  // action="/thank-you" // Uncomment if you create a thank-you page
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                >
-                  <input type="hidden" name="form-name" value="contact" />
-                  <input type="hidden" name="bot-field" />
-
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -99,12 +92,12 @@ const Contact = () => {
                       className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
                       <option value="">Select a service</option>
-                      <option value="home-renovation">Home Renovation</option>
-                      <option value="office-fitout">Office Fit-out</option>
-                      <option value="maintenance">Maintenance Services</option>
-                      <option value="wallpaper-paint">Wallpaper & Paint</option>
-                      <option value="custom-furniture">Custom Furniture</option>
-                      <option value="other">Other</option>
+                      <option value="Home Renovation">Home Renovation</option>
+                      <option value="Office Fit-out">Office Fit-out</option>
+                      <option value="Maintenance Services">Maintenance Services</option>
+                      <option value="Wallpaper & Paint">Wallpaper & Paint</option>
+                      <option value="Custom Furniture">Custom Furniture</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                   <div>
@@ -123,7 +116,7 @@ const Contact = () => {
                     type="submit"
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold"
                   >
-                    Send Message
+                    Send on WhatsApp
                   </Button>
                 </form>
               </CardContent>
@@ -193,24 +186,6 @@ const Contact = () => {
       </section>
 
       <Footer />
-
-      {/* Static form for Netlify to detect fields at build time */}
-      <div hidden>
-        <form name="contact" netlify>
-          <input type="text" name="name" />
-          <input type="tel" name="phone" />
-          <input type="email" name="email" />
-          <select name="service">
-            <option value="home-renovation">Home Renovation</option>
-            <option value="office-fitout">Office Fit-out</option>
-            <option value="maintenance">Maintenance Services</option>
-            <option value="wallpaper-paint">Wallpaper & Paint</option>
-            <option value="custom-furniture">Custom Furniture</option>
-            <option value="other">Other</option>
-          </select>
-          <textarea name="message"></textarea>
-        </form>
-      </div>
     </div>
   );
 };
