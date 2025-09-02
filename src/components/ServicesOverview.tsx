@@ -1,9 +1,9 @@
-import { 
-  Home, 
-  Building, 
-  Wrench, 
-  Paintbrush, 
-  Sofa, 
+import {
+  Home,
+  Building,
+  Wrench,
+  Paintbrush,
+  Sofa,
   Layers
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -73,7 +73,7 @@ export const ServicesOverview = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-20">
           {mainServices.map((service, index) => (
-            <div 
+            <div
               key={index}
               className="group bg-white/60 backdrop-blur-sm border border-white/20 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
@@ -94,9 +94,17 @@ export const ServicesOverview = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="w-full bg-blue-900 hover:bg-yellow-500 hover:text-black transition-colors duration-300">
-                Get Quote
-              </Button>
+              <a
+                href={`https://wa.me/971565475321?text=${encodeURIComponent(
+                  `I would like a quote for ${service.title}`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="w-full bg-blue-900 hover:bg-yellow-500 hover:text-black transition-colors duration-300">
+                  Get Quote
+                </Button>
+              </a>
             </div>
           ))}
         </div>
@@ -113,7 +121,7 @@ export const ServicesOverview = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {otherServices.map((service, index) => (
-            <div 
+            <div
               key={index}
               className="bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/60 transition-all duration-300 group"
             >
@@ -133,12 +141,13 @@ export const ServicesOverview = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button 
-            size="lg" 
+          <a
+            href="/services"
+            // size="lg" 
             className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3"
           >
             View All Services
-          </Button>
+          </a>
         </div>
       </div>
     </section>
