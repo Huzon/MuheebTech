@@ -7,6 +7,8 @@ interface CTASectionProps {
   primaryButton: string;
   secondaryButton?: string;
   variant?: "light" | "dark";
+  primaryHref?: string;
+  secondaryHref?: string;
 }
 
 export const CTASection = ({ 
@@ -14,7 +16,9 @@ export const CTASection = ({
   subtitle, 
   primaryButton, 
   secondaryButton,
-  variant = "light" 
+  variant = "light",
+  primaryHref = "/contact",
+  secondaryHref = "/gallery",
 }: CTASectionProps) => {
   const isDark = variant === "dark";
   
@@ -28,14 +32,11 @@ export const CTASection = ({
           {subtitle}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            size="lg" 
-            className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3"
-          >
-            {primaryButton}
+          <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3">
+            <a href={primaryHref}>{primaryButton}</a>
           </Button>
           {secondaryButton && (
-            <Button 
+            <Button asChild
               size="lg" 
               variant={isDark ? "outline" : "secondary"}
               className={`px-8 py-3 ${
@@ -44,7 +45,7 @@ export const CTASection = ({
                   : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
               }`}
             >
-              {secondaryButton}
+              <a href={secondaryHref}>{secondaryButton}</a>
             </Button>
           )}
         </div>

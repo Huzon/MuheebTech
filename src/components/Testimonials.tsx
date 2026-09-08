@@ -42,10 +42,10 @@ export const Testimonials = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            What Our Clients Say
+            Finished work people remember
           </h2>
           <p className="text-xl text-gray-600">
-            Trusted by homes and businesses across the UAE
+            Two client accounts of finish, flexibility and on-time completion
           </p>
         </div>
 
@@ -57,6 +57,8 @@ export const Testimonials = () => {
                 <img
                   src={`https://images.unsplash.com/${testimonials[currentTestimonial].image}`}
                   alt={testimonials[currentTestimonial].name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-24 h-24 rounded-full object-cover shadow-lg"
                 />
               </div>

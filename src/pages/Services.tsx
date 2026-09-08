@@ -5,57 +5,59 @@ import { CTASection } from "@/components/CTASection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Home, Building, Wrench, Paintbrush, Sofa, Hammer } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const Services = () => {
   const services = [
     {
       icon: <Home className="w-8 h-8 text-yellow-500" />,
-      title: "Home Renovation",
-      description: "Complete home makeovers including kitchen, bathroom, and living space renovations with modern design and quality materials.",
-      features: ["Kitchen Remodeling", "Bathroom Renovation", "Living Room Design", "Bedroom Makeover"]
+      title: "Custom Joinery",
+      description: "Design-to-build joinery for interior and event projects, fabricated from drawings, renders or reference concepts.",
+      features: ["Wardrobes & Cabinets", "Kitchens & Vanities", "TV Units", "Built-in Furniture"]
     },
     {
       icon: <Building className="w-8 h-8 text-yellow-500" />,
-      title: "Office Fit-out",
-      description: "Professional office spaces designed for productivity and comfort, from small startups to large corporate environments.",
-      features: ["Corporate Office Design", "Workspace Planning", "Reception Areas", "Meeting Rooms"]
+      title: "Interior Execution",
+      description: "Coordinated execution support for designers and contractors who need a finished space—not another trade to manage.",
+      features: ["Partitions", "Feature Walls", "Flooring", "Painting & Finishes"]
     },
     {
       icon: <Wrench className="w-8 h-8 text-yellow-500" />,
-      title: "Maintenance Services",
-      description: "Regular maintenance and repair services to keep your property in perfect condition year-round.",
-      features: ["Regular Inspections", "Preventive Maintenance", "Emergency Repairs", "Annual Contracts"]
+      title: "Event Fabrication",
+      description: "Fast-turnaround fabrication for event and production companies working against fixed opening dates.",
+      features: ["Custom Booths", "Branded Rooms", "Temporary Structures", "Event Interiors"]
     },
     {
       icon: <Paintbrush className="w-8 h-8 text-yellow-500" />,
-      title: "Wallpaper & Paint",
-      description: "Professional painting and wallpaper installation services with premium materials and expert craftsmanship.",
-      features: ["Interior Painting", "Exterior Painting", "Wallpaper Installation", "Texture Work"]
+      title: "Stages & Backdrops",
+      description: "Custom-built event focal points planned for the design, venue access and installation window.",
+      features: ["Stages", "Backdrops", "Branding Structures", "Custom Set Elements"]
     },
     {
       icon: <Sofa className="w-8 h-8 text-yellow-500" />,
-      title: "Custom Furniture",
-      description: "Bespoke furniture solutions designed and crafted to perfectly fit your space and style preferences.",
-      features: ["Built-in Wardrobes", "Kitchen Cabinets", "Office Furniture", "Custom Storage"]
+      title: "Site Installation",
+      description: "Delivery, installation and dismantling coordinated with the project schedule and site conditions.",
+      features: ["Site Coordination", "Joinery Installation", "Event Setup", "Dismantling"]
     },
     {
       icon: <Hammer className="w-8 h-8 text-yellow-500" />,
-      title: "Specialized Services",
-      description: "Expert services including flooring, acrylic work, POP & ceiling installations for complete space transformation.",
-      features: ["Flooring Installation", "Acrylic Work", "POP & Ceiling", "Electrical Work"]
+      title: "Additional Technical Works",
+      description: "Supporting trades kept within the execution package when the project needs a coordinated solution.",
+      features: ["Flooring", "Acrylic Work", "POP & Ceiling", "Electrical Works"]
     }
   ];
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO title="Custom Joinery, Interior & Event Execution Services" description="Explore Muheeb's Dubai execution capabilities: custom joinery, interior works, event booths, stages, backdrops, installation and supporting technical works." path="/services" />
       <Navbar />
       
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Execution That Brings Designs to Life</h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Comprehensive technical services for homes and businesses across the UAE
+            Custom joinery, interior works and event fabrication organised around the finished result
           </p>
         </div>
       </section>
@@ -99,10 +101,10 @@ const Services = () => {
       </section>
 
       <CTASection 
-        title="Ready to Start Your Project?"
-        subtitle="Get a free consultation and quote for your next renovation or technical service"
-        primaryButton="Get Free Quote"
-        secondaryButton="Book Consultation"
+        title="Have a scope ready to review?"
+        subtitle="Send the drawings, render, reference or event brief and we'll discuss the execution."
+        primaryButton="Discuss Your Project"
+        secondaryButton="View Project Stories"
       />
 
       <Footer />

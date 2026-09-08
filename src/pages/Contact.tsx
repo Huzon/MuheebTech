@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -5,48 +6,47 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const submitting = useRef(false);
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    const name = formData.get("name") as string;
-    const phone = formData.get("phone") as string;
-    const email = formData.get("email") as string;
-    const service = formData.get("service") as string;
-    const message = formData.get("message") as string;
-
-    const whatsappMessage = `
-Hello, I would like to inquire about your services:
-
-🧑 Name: ${name}
-📞 Phone: ${phone}
-📧 Email: ${email}
-🛠 Service Interested In: ${service || "Not specified"}
-📝 Message: ${message}
-    `;
-
-    const whatsappUrl = `https://wa.me/971566036352?text=${encodeURIComponent(
-      whatsappMessage
-    )}`;
-
-    window.open(whatsappUrl, "_blank");
-    form.reset(); // optional: clear form after redirect
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (submitting.current) return;
+    const form = event.currentTarget;
+    const body = new URLSearchParams();
+    new FormData(form).forEach((value, key) => body.append(key, String(value)));
+    submitting.current = true;
+    setStatus("sending");
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      if (!response.ok) throw new Error("Submission failed");
+      form.reset();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    } finally {
+      submitting.current = false;
+    }
   };
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO title="Discuss an Interior or Event Project" description="Send Muheeb your drawings, renders, event date or project requirements. Discuss custom joinery, interior execution and event fabrication in Dubai." path="/contact" />
       <Navbar />
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Tell Us What You're Trying to Build</h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Get in touch for your next project or technical service needs
+            Send your drawings, renders, reference images, project scope or event date. We'll review what execution support you need.
           </p>
         </div>
       </section>
@@ -58,10 +58,22 @@ Hello, I would like to inquire about your services:
             {/* Contact Form */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Send us a Message</CardTitle>
+                <CardTitle className="text-2xl">Send Your Requirements</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                  aria-busy={status === "sending"}
+                  className="space-y-6"
+                >
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p hidden>
+                    <label>Leave this empty: <input name="bot-field" tabIndex={-1} autoComplete="off" /></label>
+                  </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -77,6 +89,19 @@ Hello, I would like to inquire about your services:
                     </div>
                   </div>
                   <div>
+                    <label htmlFor="client-type" className="block text-sm font-medium text-gray-700 mb-2">
+                      I am a
+                    </label>
+                    <select id="client-type" name="client-type" required className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                      <option value="">Select one</option>
+                      <option value="interior-designer">Interior Designer / Architect</option>
+                      <option value="event-company">Event / Production Company</option>
+                      <option value="contractor">Contractor</option>
+                      <option value="direct-client">Direct Client</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
                     </label>
@@ -84,7 +109,7 @@ Hello, I would like to inquire about your services:
                   </div>
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                      Service Interested In
+                      Project Type
                     </label>
                     <select
                       id="service"
@@ -92,12 +117,11 @@ Hello, I would like to inquire about your services:
                       className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
                       <option value="">Select a service</option>
-                      <option value="Home Renovation">Home Renovation</option>
-                      <option value="Office Fit-out">Office Fit-out</option>
-                      <option value="Maintenance Services">Maintenance Services</option>
-                      <option value="Wallpaper & Paint">Wallpaper & Paint</option>
-                      <option value="Custom Furniture">Custom Furniture</option>
-                      <option value="Other">Other</option>
+                      <option value="custom-joinery">Custom Joinery</option>
+                      <option value="interior-execution">Interior Execution</option>
+                      <option value="event-execution">Event Fabrication & Installation</option>
+                      <option value="technical-services">Additional Technical Services</option>
+                      <option value="other">Other</option>
                     </select>
                   </div>
                   <div>
@@ -108,16 +132,25 @@ Hello, I would like to inquire about your services:
                       id="message"
                       name="message"
                       rows={5}
-                      placeholder="Tell us about your project requirements..."
+                      placeholder="Tell us what you need to build, the location and your target date..."
                       required
                     />
                   </div>
                   <Button
                     type="submit"
+                    disabled={status === "sending"}
                     className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold"
                   >
-                    Send on WhatsApp
+                    {status === "sending" ? "Sending…" : "Send Requirements"}
                   </Button>
+                  <div role="status" aria-live="polite">
+                    {status === "success" && (
+                      <p className="text-green-700">Thank you! Your requirements have been sent. Our team will be in touch to discuss your project.</p>
+                    )}
+                  </div>
+                  {status === "error" && (
+                    <p role="alert" className="text-red-700">We couldn't send your message. Your details are still here—please try again, or contact us using WhatsApp below.</p>
+                  )}
                 </form>
               </CardContent>
             </Card>
@@ -140,7 +173,7 @@ Hello, I would like to inquire about your services:
                     <Mail className="w-6 h-6 text-yellow-500 flex-shrink-0" />
                     <div>
                       <p className="font-medium">Email</p>
-                      <a href="mailto:info@muheebtechnicals.com" className="text-gray-600">info@muheebtechnical.com</a>
+                      <a href="mailto:info@muheebtechnical.com" className="text-gray-600">info@muheebtechnical.com</a>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -163,21 +196,18 @@ Hello, I would like to inquire about your services:
               {/* Offer */}
               <Card className="bg-gradient-to-r from-blue-50 to-yellow-50 border-yellow-200">
                 <CardContent className="text-center p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Special Offer</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Prefer WhatsApp?</h3>
                   <p className="text-gray-700 mb-6">
-                    Get expert advice for your project with our professional consultation
+                    Send the drawings, renders, scope or event date directly and start with the real project requirement.
                   </p>
-                  <a
-                    href="https://wa.me/971566036352?text=I%20would%20like%20a%20free%20counselling"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-md text-center"
-                  >
-                    Book Free Counselling
-                  </a>
-                  <p className="text-xs text-gray-500 mt-3">
-                    *Free counselling is applicable only if a service is purchased
-                  </p>
+                 <a
+                  href="https://wa.me/971566036352?text=I%27d%20like%20to%20discuss%20a%20project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-md text-center"
+                >
+  Discuss Your Project
+</a>
                 </CardContent>
               </Card>
             </div>
@@ -186,6 +216,7 @@ Hello, I would like to inquire about your services:
       </section>
 
       <Footer />
+
     </div>
   );
 };

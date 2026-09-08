@@ -1,151 +1,24 @@
-
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/CTASection";
-import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { ProjectShowcase } from "@/components/ProjectShowcase";
+import { SEO } from "@/components/SEO";
 
-const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const categories = [
-    { id: "all", name: "All Projects" },
-    { id: "home", name: "Home Renovation" },
-    { id: "office", name: "Office Fit-out" },
-    { id: "furniture", name: "Custom Furniture" },
-    { id: "paint", name: "Paint & Wallpaper" }
-  ];
-
-  const projects = [
-    {
-      id: 1,
-      title: "Modern Kitchen Renovation",
-      category: "home",
-      image: "/projects/home/IMG_8559.jpg",
-      description: "Complete kitchen makeover with modern appliances and elegant design"
-    },
-    {
-      id: 2,
-      title: "Corporate Office Design",
-      category: "office",
-      image: "/projects/office/IMG_0447.jpg",
-      description: "Professional office space with modern furniture and lighting"
-    },
-    {
-      id: 3,
-      title: "Custom Wardrobes",
-      category: "furniture",
-      image: "/projects/furniture/IMG_8638.jpg",
-      description: "Sleek custom wardrobe with full-length mirrored panels framed in white and accented with gold trim"
-    },
-    {
-      id: 4,
-      title: "Living Room Makeover",
-      category: "home",
-      image: "/projects/home/IMG_9306.jpg",
-      description: "Elegant living room with custom furniture and wall treatment"
-    },
-    {
-      id: 5,
-      title: "Office Reception Area",
-      category: "office",
-      image: "/projects/office/IMG_5742.jpg",
-      description: "Welcoming reception area with modern design elements"
-    },
-    {
-      id: 6,
-      title: "Feature Wall Design",
-      category: "paint",
-      image: "/projects/wall/IMG_4777.jpg",
-      description: "Stunning feature wall with customized wall cladding and lighting"
-    },
-    {
-      id: 7,
-      title: "Master Bedroom Suite",
-      category: "home",
-      image: "/projects/home/IMG_9321.jpg",
-      description: "Luxurious master bedroom with matching rug and curtains"
-    },
-    {
-      id: 8,
-      title: "Home Office",
-      category: "office",
-      image: "/projects/office/IMG_9329.jpg",
-      description: "Modern home office room with AV integration"
-    }
-  ];
-
-  const filteredProjects = selectedCategory === "all"
-    ? projects
-    : projects.filter(project => project.category === selectedCategory);
-
-  return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Gallery</h1>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Explore our portfolio of completed projects across the UAE
-          </p>
-        </div>
-      </section>
-
-      {/* Category Filter */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${selectedCategory === category.id
-                  ? "bg-yellow-500 text-black"
-                  : "bg-white text-gray-700 hover:bg-gray-100"
-                  }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProjects.map((project) => (
-              <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="aspect-square overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <CardContent className="p-4">
-                  <h3 className="font-semibold text-lg mb-2">{project.title}</h3>
-                  <p className="text-gray-600 text-sm">{project.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CTASection
-        title="Inspired by Our Work?"
-        subtitle="Let us transform your space with our expert craftsmanship and attention to detail"
-        primaryButton="Start Your Project"
-        secondaryButton="Get Free Quote"
-      />
-
-      <Footer />
-    </div>
-  );
-};
+const Gallery = () => (
+  <div className="min-h-screen bg-white">
+    <SEO title="Interior Joinery & Event Project Portfolio" description="Browse Muheeb Technical Services projects in Dubai, including residential interiors, office fit-outs, custom furniture and feature-wall execution." path="/gallery" />
+    <Navbar />
+    <section className="pt-32 pb-20 bg-blue-950 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-yellow-400 font-semibold uppercase tracking-[0.18em] mb-4">Selected project portfolio</p>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">Ideas and drawings, made real.</h1>
+        <p className="text-xl text-blue-100 max-w-3xl">Explore examples of our interior execution, custom joinery and finishing work, then open each project to see more images.</p>
+      </div>
+    </section>
+    <ProjectShowcase />
+    <CTASection title="What are you trying to build?" subtitle="Share your deadline, drawings, render or reference. We'll look at the requirement and discuss the execution." primaryButton="Discuss Your Project" secondaryButton="Explore Interior Execution" secondaryHref="/interior-designers" />
+    <Footer />
+  </div>
+);
 
 export default Gallery;

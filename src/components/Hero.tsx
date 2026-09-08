@@ -1,130 +1,34 @@
 
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      image: "photo-1721322800607-8c38375eef04",
-      title: "Transform Your Living Space",
-      subtitle: "Professional home renovation services across UAE"
-    },
-    {
-      image: "photo-1483058712412-4245e9b90334",
-      title: "Modern Office Solutions",
-      subtitle: "Complete office fit-out and technical services"
-    },
-    {
-      image: "photo-1487958449943-2429e8be8625",
-      title: "Premium Technical Services",
-      subtitle: "From maintenance to custom installations"
-    }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Background Images */}
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-        >
-          <img
-            src={`https://images.unsplash.com/${slide.image}`}
-            alt={slide.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-      ))}
+    <section className="relative min-h-[720px] h-screen overflow-hidden bg-blue-950">
+      <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1800&q=82" alt="Custom interior execution and joinery" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-950/95 via-blue-950/80 to-black/45"></div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
-        <div className="max-w-4xl mx-auto text-white">
+      <div className="relative z-10 h-full flex items-center px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl w-full mx-auto pt-16 text-white">
+          <p className="text-sm md:text-base font-semibold uppercase tracking-[0.2em] text-yellow-400 mb-5">Interior & event execution partner · Dubai</p>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            {slides[currentSlide].title}
+            You Have the Design.<br />We Make It Work.
           </h1>
-          <p className="text-xl md:text-2xl mb-4 animate-fade-in delay-200">
-            {slides[currentSlide].subtitle}
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl text-gray-100 animate-fade-in delay-200">
+            Custom joinery, interior execution and event installations for designers, contractors and event companies who need the details solved and the work delivered.
           </p>
-          <p className="text-lg md:text-xl mb-8 font-medium text-yellow-400 animate-fade-in delay-300">
-            Trusted by homes, chosen by businesses
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-500">
-            <Button
-              size="lg"
-              className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold text-lg px-8 py-3"
-              onClick={() => {
-                window.open(
-                  "https://wa.me/971565475321?text=" +
-                  encodeURIComponent("Hello, I would like a free quote."),
-                  "_blank"
-                );
-              }}
-            >
-              Get Free Quote Now
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in delay-500">
+            <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold text-lg px-8 py-3">
+              <a href="/contact">Discuss Your Project</a>
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-black hover:bg-white hover:text-yellow-500 hover:border-yellow-500 text-lg px-8 py-3"
-              onClick={() => {
-                window.open(
-                  "https://wa.me/971565475321?text=" +
-                  encodeURIComponent("Hello, I would like to book a consultation."),
-                  "_blank"
-                );
-              }}
-            >
-              Book Consultation
+            <Button asChild size="lg" variant="outline" className="border-white bg-white/10 text-white hover:bg-white hover:text-blue-950 text-lg px-8 py-3">
+              <a href="/gallery">View Our Projects</a>
             </Button>
           </div>
+          <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 text-sm text-gray-200">
+            <span>Drawings → finished work</span><span>Custom joinery specialists</span><span>Fast event mobilisation</span>
+          </div>
         </div>
-      </div>
-
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all duration-200"
-      >
-        <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all duration-200"
-      >
-        <ChevronRight className="w-6 h-6 text-white" />
-      </button>
-
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-200 ${index === currentSlide ? 'bg-yellow-500' : 'bg-white/50'
-              }`}
-          />
-        ))}
       </div>
     </section>
   );

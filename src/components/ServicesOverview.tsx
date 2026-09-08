@@ -1,155 +1,56 @@
-import {
-  Home,
-  Building,
-  Wrench,
-  Paintbrush,
-  Sofa,
-  Layers
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, CalendarClock, DraftingCompass, Hammer, Layers, Sofa, Store } from "lucide-react";
 
-export const ServicesOverview = () => {
-  const mainServices = [
-    {
-      icon: Home,
-      title: "Home Renovation",
-      description: "Complete home transformation services from concept to completion",
-      features: ["Kitchen Remodeling", "Bathroom Renovation", "Living Space Design"]
-    },
-    {
-      icon: Building,
-      title: "Office Fit-out",
-      description: "Professional office spaces designed for productivity and aesthetics",
-      features: ["Space Planning", "Interior Design", "Furniture Installation"]
-    },
-    {
-      icon: Wrench,
-      title: "Maintenance Services",
-      description: "Comprehensive maintenance solutions for homes and offices",
-      features: ["Electrical Work", "Plumbing", "HVAC Services"]
-    }
-  ];
+const capabilities = [
+  { icon: Sofa, title: "Custom Joinery", text: "Wardrobes, kitchens, vanities, TV units and built-in furniture made for the project." },
+  { icon: Layers, title: "Interior Execution", text: "Partitions, feature walls, flooring, painting and finishes coordinated as one scope." },
+  { icon: Store, title: "Event Fabrication", text: "Booths, stages, backdrops, branded rooms and temporary custom structures." },
+  { icon: Hammer, title: "Installation", text: "Site delivery, installation and dismantling planned around access and deadlines." },
+];
 
-  const otherServices = [
-    {
-      icon: Paintbrush,
-      title: "Wallpaper & Paint",
-      description: "Professional painting and wallpaper installation services"
-    },
-    {
-      icon: Sofa,
-      title: "Custom Furniture",
-      description: "Bespoke furniture design and manufacturing"
-    },
-    {
-      icon: Layers,
-      title: "Flooring Solutions",
-      description: "Premium flooring installation and renovation"
-    },
-    {
-      icon: Layers,
-      title: "Acrylic Work",
-      description: "Custom acrylic installations and fabrication"
-    },
-    {
-      icon: Building,
-      title: "POP & Ceiling Work",
-      description: "Decorative ceiling designs and installations"
-    }
-  ];
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+export const ServicesOverview = () => (
+  <>
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Services */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Our Core Services
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive technical services for your home and office transformation needs
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {mainServices.map((service, index) => (
-            <div
-              key={index}
-              className="group bg-white/60 backdrop-blur-sm border border-white/20 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-            >
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-900 rounded-full mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
-                <service.icon className="w-8 h-8 text-white group-hover:text-black" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 mb-6">
-                {service.description}
-              </p>
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="text-sm text-gray-500 flex items-center">
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={`https://wa.me/971565475321?text=${encodeURIComponent(
-                  `I would like a quote for ${service.title}`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="w-full bg-blue-900 hover:bg-yellow-500 hover:text-black transition-colors duration-300">
-                  Get Quote
-                </Button>
-              </a>
-            </div>
-          ))}
-        </div>
-
-        {/* Other Services */}
         <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">
-            Additional Services
-          </h3>
-          <p className="text-lg text-gray-600">
-            Specialized technical services to complete your project
-          </p>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-900 mb-3">Choose your project path</p>
+          <h2 className="text-4xl font-bold text-gray-900">Execution built around your priorities</h2>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {otherServices.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/60 transition-all duration-300 group"
-            >
-              <div className="flex items-center mb-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-yellow-500 rounded-lg mr-4 group-hover:bg-blue-900 transition-colors duration-300">
-                  <service.icon className="w-6 h-6 text-black group-hover:text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900">
-                  {service.title}
-                </h4>
-              </div>
-              <p className="text-gray-600 text-sm">
-                {service.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a
-            href="/services"
-            // size="lg" 
-            className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3"
-          >
-            View All Services
+        <div className="grid lg:grid-cols-2 gap-8">
+          <a href="/interior-designers" className="group rounded-3xl bg-blue-950 text-white p-8 md:p-12 hover:-translate-y-1 transition-transform">
+            <DraftingCompass className="w-10 h-10 text-yellow-400 mb-8" />
+            <p className="text-sm uppercase tracking-wider text-blue-200 mb-3">For designers, architects & contractors</p>
+            <h3 className="text-3xl font-bold mb-4">You design it. We make it work.</h3>
+            <p className="text-lg text-blue-100 mb-8">Send us the drawings, renders or concept. We handle the custom joinery and practical execution—including the buildability details that are easy to miss on paper.</p>
+            <span className="inline-flex items-center font-semibold text-yellow-400">Explore interior execution <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></span>
+          </a>
+          <a href="/events" className="group rounded-3xl bg-yellow-400 text-blue-950 p-8 md:p-12 hover:-translate-y-1 transition-transform">
+            <CalendarClock className="w-10 h-10 mb-8" />
+            <p className="text-sm uppercase tracking-wider text-blue-900 mb-3">For event & production companies</p>
+            <h3 className="text-3xl font-bold mb-4">Your deadline is fixed. Our execution is built around it.</h3>
+            <p className="text-lg text-blue-950/80 mb-8">Custom event interiors, joinery and installations delivered under tight timelines, with the labour and coordination needed to finish.</p>
+            <span className="inline-flex items-center font-semibold">Explore event execution <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" /></span>
           </a>
         </div>
       </div>
     </section>
-  );
-};
+
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mb-12">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-900 mb-3">What we execute</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Capabilities that work together</h2>
+          <p className="text-xl text-gray-600">One accountable execution partner across the package—not a list of disconnected trades for you to coordinate.</p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {capabilities.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
+              <Icon className="w-8 h-8 text-yellow-500 mb-5" />
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
+              <p className="text-gray-600">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </>
+);
