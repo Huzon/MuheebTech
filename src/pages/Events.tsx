@@ -14,7 +14,7 @@ const Events = () => (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="font-semibold uppercase tracking-[0.18em] mb-4">For event & production companies</p>
         <h1 className="text-4xl md:text-6xl font-bold max-w-5xl mb-6">Your deadline is fixed. Our execution is built around it.</h1>
-        <p className="text-xl text-blue-950/80 max-w-3xl mb-8">Custom event interiors, joinery and installations delivered at speed, with the labour, fabrication and site coordination needed to finish before the doors open.</p>
+        <p className="text-xl text-blue-950/80 max-w-3xl mb-8">Fabrication, crews and installation. Ready before the doors open.</p>
         <a href="/contact" className="inline-block bg-blue-950 hover:bg-blue-900 text-white font-bold px-8 py-3 rounded-md">Discuss Your Event</a>
       </div>
     </section>
@@ -23,8 +23,8 @@ const Events = () => (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-start">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-900 mb-3">Built for immovable dates</p>
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">When time is short, execution has to expand.</h2>
-          <p className="text-lg text-gray-600 mb-8">Event work is not ordinary fit-out. Access windows are narrow, changes happen quickly and the opening date stays fixed. We plan the people, fabrication and installation around that reality.</p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">Built around your opening day.</h2>
+          <p className="text-lg text-gray-600 mb-8">One coordinated team. From workshop to handover.</p>
           <div className="grid sm:grid-cols-2 gap-3">
             {eventScope.map((item) => <div key={item} className="flex items-center gap-2 text-gray-700"><CheckCircle2 className="w-5 h-5 text-yellow-500" />{item}</div>)}
           </div>
@@ -34,7 +34,7 @@ const Events = () => (
           <p className="text-xl mb-8">people assembled and managed</p>
           <div className="text-6xl font-bold text-yellow-400 mb-2">3 days</div>
           <p className="text-xl mb-8">to complete the event requirement</p>
-          <p className="border-t border-blue-800 pt-8 text-blue-100">A real Muheeb delivery that demonstrates mobilisation, coordination and execution under pressure.</p>
+          <p className="border-t border-blue-800 pt-8 text-blue-100">One real event delivery. One immovable deadline.</p>
         </div>
       </div>
     </section>

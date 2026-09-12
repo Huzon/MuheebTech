@@ -4,14 +4,13 @@ import { Button } from "@/components/ui/button";
 import { projects, type Project } from "@/data/projects";
 
 export const ProjectShowcase = ({ compact = false }: { compact?: boolean }) => (
-  <section className={`py-20 ${compact ? "bg-gray-50" : "bg-white"}`}>
+  <section id="selected-work" className={`py-20 ${compact ? "bg-gray-50" : "bg-white"}`}>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {compact && (
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-900 mb-3">Selected projects</p>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">A closer look at our execution.</h2>
-            <p className="text-lg text-gray-600">Browse recent interior, joinery and finishing work.</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Spaces. Details. Possibilities.</h2>
           </div>
           <a href="/gallery" className="inline-flex items-center font-bold text-blue-900 shrink-0">View all projects <ArrowRight className="ml-2 w-5 h-5" /></a>
         </div>
@@ -25,7 +24,6 @@ export const ProjectShowcase = ({ compact = false }: { compact?: boolean }) => (
             <div className="p-6 md:p-7 flex flex-col flex-1">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-900 mb-2">{project.category}</p>
               <h2 className={`${compact ? "text-xl" : "text-2xl"} font-bold text-gray-900 mb-3`}>{project.title}</h2>
-              <p className="text-gray-600 mb-6 flex-1">{project.summary}</p>
               <ProjectGalleryButton project={project} />
             </div>
           </article>

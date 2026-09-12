@@ -19,16 +19,15 @@ const About = () => (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-yellow-400 font-semibold uppercase tracking-[0.18em] mb-4">About Muheeb</p>
         <h1 className="text-4xl md:text-6xl font-bold max-w-4xl mb-6">We are an execution company.</h1>
-        <p className="text-xl text-blue-100 max-w-3xl">Our work starts with an idea, drawing, requirement or deadline. Our job is to figure out how to turn it into something that works—and take responsibility for the agreed execution.</p>
+        <p className="text-xl text-blue-100 max-w-3xl">Practical thinkers. Skilled makers. Your execution team in Dubai.</p>
       </div>
     </section>
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14">
         <div><p className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-900 mb-3">Our story in the work</p><h2 className="text-4xl font-bold mb-6">The common thread is solving what happens next.</h2></div>
         <div className="space-y-6 text-lg text-gray-600">
-          <p>We have coordinated a 25-person team to deliver an event project in three days, proposed practical solutions that were not obvious in an interior plan, and turned an AI reference image into a TV console with better functionality.</p>
-          <p>Different projects, same strength: understand the intent, solve the real-world details and organise the work needed to deliver it.</p>
-          <p>Today we focus that capability on two types of partners: interior designers and contractors who need design-to-build support, and event companies working against immovable dates.</p>
+          <img src="/projects/wall/IMG_4794.webp" alt="Muheeb interior finishing work on site" loading="lazy" decoding="async" width="1600" height="2134" className="w-full h-80 object-cover" />
+          <p>From a 25-person event crew delivering in three days to custom furniture built from a reference image: we solve the details and get it made.</p>
         </div>
       </div>
     </section>

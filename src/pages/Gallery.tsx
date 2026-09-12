@@ -12,7 +12,7 @@ const Gallery = () => (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-yellow-400 font-semibold uppercase tracking-[0.18em] mb-4">Selected project portfolio</p>
         <h1 className="text-4xl md:text-6xl font-bold mb-6">Ideas and drawings, made real.</h1>
-        <p className="text-xl text-blue-100 max-w-3xl">Explore examples of our interior execution, custom joinery and finishing work, then open each project to see more images.</p>
+        <p className="text-xl text-blue-100 max-w-3xl">Interiors, joinery and the details that make a space.</p>
       </div>
     </section>
     <ProjectShowcase />

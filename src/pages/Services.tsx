@@ -86,13 +86,11 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <a href={`https://wa.me/971566036352?text=${encodeURIComponent(`Get quote for ${service.title}`)}`}
+                  <Button asChild className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold"><a href={`https://wa.me/971566036352?text=${encodeURIComponent(`Get quote for ${service.title}`)}`}
                   target="_blank"
                   rel="noopener noreferrer">
-                    <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-semibold">
                       Get Quote for {service.title}
-                    </Button>
-                  </a>
+                  </a></Button>
                 </CardContent>
               </Card>
             ))}

@@ -75,6 +75,7 @@ export const Footer = () => {
               © {new Date().getFullYear()} Muheeb Technical Services. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="https://www.openxpertsolutions.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-500 text-sm transition-colors">Website by OpenXpert Solutions</a>
               <a href="https://wa.me/971566036352" className="text-gray-400 hover:text-yellow-500 text-sm transition-colors">WhatsApp</a>
             </div>
           </div>

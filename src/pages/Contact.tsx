@@ -46,7 +46,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Tell Us What You're Trying to Build</h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-            Send your drawings, renders, reference images, project scope or event date. We'll review what execution support you need.
+            Tell us the scope, location and target date. We'll take it from there.
           </p>
         </div>
       </section>
@@ -166,7 +166,7 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-yellow-500 flex-shrink-0" />
                     <div>
                       <p className="font-medium">Phone</p>
-                      <a className="text-gray-600" href="tel:971566036352">+971 56 603 6352</a>
+                      <a className="text-gray-600" href="tel:+971566036352">+971 56 603 6352</a>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
